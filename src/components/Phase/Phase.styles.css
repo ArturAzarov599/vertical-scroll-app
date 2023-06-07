@@ -1,0 +1,49 @@
+.phase {
+  position: relative;
+  flex: 0 0 45%;
+}
+
+.phase-border {
+  height: 100%;
+  min-height: 364px;
+  width: 100%;
+
+  background-image: url('../../assets/images/bamboo-frame.png');
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.phase-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+  max-height: 280px;
+  width: 100%;
+  max-width: 500px;
+  padding-top: 28px;
+
+  background-color: var(--bf-content);
+
+  transform: translate(-55%, -50%);
+}
+
+.phase-title {
+  font-family: var(--nerko-one), cursive;
+  font-size: 40px;
+  color: var(--green);
+  line-height: 48px;
+}
+
+.phase-list-item {
+  font-family: var(--inter), sans-serif;
+  font-size: 24px;
+  color: var(--primary);
+  line-height: 29px;
+}
