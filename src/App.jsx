@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Phase from "./components/Phase/Phase";
 
 import { useHorizontalScroll } from "./hooks/useHorizontalScroll";
@@ -9,10 +11,17 @@ import BackgroundIllustration from "./assets/images/background-illustration.png"
 import "./App.styles.css";
 
 const App = () => {
-  const scrollRef = useHorizontalScroll();
+  const { scrollRef, containerRef } = useHorizontalScroll();
+
+  useEffect(() => {
+    scrollRef?.current.scroll({
+      left: scrollRef.current.scrollWidth,
+      behavior: "smooth",
+    });
+  }, [scrollRef]);
 
   return (
-    <div className="roadmap">
+    <div className="roadmap" ref={containerRef}>
       <div className="roadmap-bg">
         <img src={BackgroundIllustration} alt="bg illustration" />
       </div>
@@ -23,7 +32,7 @@ const App = () => {
 
       <div ref={scrollRef} className="roadmap-content container">
         {mockPhaseData.map((data) => (
-          <Phase {...data} />
+          <Phase key={data.title} {...data} />
         ))}
       </div>
     </div>
